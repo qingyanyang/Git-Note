@@ -76,7 +76,7 @@ enter return, to generate ssh key if it is first to config ssh
 
 origin vs upstream
 ```bash
-https:# blog.csdn.net/weixin_37646636/article/details/129778632
+https:blog.csdn.net/weixin_37646636/article/details/129778632
 ```
 remote repo (eg: bashhub)
 ```bash
