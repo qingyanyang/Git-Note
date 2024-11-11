@@ -70,10 +70,14 @@ in local git repo,  cd .shh
 Ssh-keygen -t rsa -b 4096
 enter return, to generate ssh key if it is first to config ssh
 
-add remote url to local repo
+
+
+## remote
+
 ```git
 origin vs upstream
 https://blog.csdn.net/weixin_37646636/article/details/129778632
+
 git remote add <remote shortname><url> //eg: git remote add origin https://github.com/user/repo.git
 git remote rm <remote shortname>
 git remote rename old-name new-name
