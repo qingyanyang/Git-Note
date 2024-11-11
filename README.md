@@ -124,7 +124,7 @@ git branch -r //remote branches
 ```
 
 create new branch
-```javascript
+```bash
 git branch <new-branch-name> //but not switch to it
 git checkout -b <new-branch-name> //and switch to it
 git checkout/switch <branch-name> //switch to a existing branch
