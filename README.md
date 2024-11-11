@@ -74,58 +74,72 @@ enter return, to generate ssh key if it is first to config ssh
 
 ## remote
 
-```git
 origin vs upstream
+```git
 https://blog.csdn.net/weixin_37646636/article/details/129778632
-
+```
+remote repo (eg: github)
+```git
 git remote add <remote shortname><url> //eg: git remote add origin https://github.com/user/repo.git
 git remote rm <remote shortname>
 git remote rename old-name new-name
-// list remote repos (not branches)
-git remote -v
+
+git remote -v // list remote repos
+
 // eg:
 // origin  https://github.com/user/repo.git (fetch)
 // origin  https://github.com/user/repo.git (push)
-
-// delete a branch from remote
+```
+delete a branch from remote
+```git
 git push origin --delete <branch-name>
-// push to remote repo
+```
+push to remote repo
+```git
 git push -u <remote shortname><remote branchname>:<local branchname>
-
-git fetch <remote shortname> <branch-name> // update remote changes to local remote info
-git pull // git pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
-
-// check which remote branch my current branch is tracking with
+git push // push local changes to tracked remote repo
+```
+update remote changes to local remote info
+```git
+git fetch <remote shortname> <branch-name>
+```
+git pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
+```git
+git pull 
+```
+check which remote branch my current branch is tracking with
+```git
 git branch -vv
-
-// change my remote tracking
+```
+change my remote tracking
+```git
 git branch --set-upstream-to=origin/feature-branch
 ```
 
-branch commands
+## branch
+list all branches
 ```git
-//list all local branches
-git branch
-// list all remote branches
-git branch -r
+git branch //local branches
+git branch -r //remote branches
+```
 
-// create new branch but not switch to it
-git branch <new-branch-name>
-//create new branch and switch to it
-git checkout -b <new-branch-name>
-//switch to a existing branch
-git checkout/switch <branch-name>
-
-//change branchname
+create new branch
+```git
+git branch <new-branch-name> //but not switch to it
+git checkout -b <new-branch-name> //and switch to it
+git checkout/switch <branch-name> //switch to a existing branch
+```
+change branchname
+```git
 git branch -m <new-branch-name> //will change current local name to new one
 git branch -m <old-branch-name> <new-branch-name> // if you are on different branch
-
-// delete local branch
+```
+delete local branch
+```git
 git branch -d <branch-name> // -d: delete branch that has been merged already
 git branch -D dev // -D: force to delete branch
-
 ```
-Git rebase
+## rebase
 ```git
 git checkout feature
 git rebase main
