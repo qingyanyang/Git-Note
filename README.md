@@ -72,47 +72,54 @@ enter return, to generate ssh key if it is first to config ssh
 
 add remote url to local repo
 ```git
-git remote add <remote shortname><url>
-// shortname: origin
-// url: git@github.com.jshdkjshkjdhksjsdjshdg****
-// example: git remote add origin git@github.com.kusgjagtsdyjs
-```
-push to remote repo
-```git
+origin vs upstream
+https://blog.csdn.net/weixin_37646636/article/details/129778632
+git remote add <remote shortname><url> //eg: git remote add origin https://github.com/user/repo.git
+git remote rm <remote shortname>
+git remote rename old-name new-name
+// list remote repos (not branches)
+git remote -v
+// eg:
+// origin  https://github.com/user/repo.git (fetch)
+// origin  https://github.com/user/repo.git (push)
+
+// delete a branch from remote
+git push origin --delete <branch-name>
+// push to remote repo
 git push -u <remote shortname><remote branchname>:<local branchname>
-remote shortname: origin
-remote branchname: main
-local branchname: main
+
+git fetch <remote shortname> <branch-name> // update remote changes to local remote info
+git pull // git pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
+
+// check which remote branch my current branch is tracking with
+git branch -vv
+
+// change my remote tracking
+git branch --set-upstream-to=origin/feature-branch
 ```
 
-pull remote branch to local branch, this will excute merge after pulling code
-```git
-git pull origin main:main
-```
-if conflicts
-```git
-git fetch
-(main) git merge dev
-```
 branch commands
 ```git
-git branch branchname
-git checkout branchname
-git switch branchnam // better use this
-```
-check brancg graph
-```git
-git log --graph --oneline --decorate --all
-```
-delete branch
-```git
-git branch -d dev // -d: delete branch that has been merged already
+//list all local branches
+git branch
+// list all remote branches
+git branch -r
+
+// create new branch but not switch to it
+git branch <new-branch-name>
+//create new branch and switch to it
+git checkout -b <new-branch-name>
+//switch to a existing branch
+git checkout/switch <branch-name>
+
+//change branchname
+git branch -m <new-branch-name> //will change current local name to new one
+git branch -m <old-branch-name> <new-branch-name> // if you are on different branch
+
+// delete local branch
+git branch -d <branch-name> // -d: delete branch that has been merged already
 git branch -D dev // -D: force to delete branch
-```
-stage + commit
-```git
-git commit -a -m “feat: ***”
-git commit -am “feat: ***”
+
 ```
 Git rebase
 ```git
