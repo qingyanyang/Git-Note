@@ -1,72 +1,72 @@
-# git note
+# bash note
 
-check if git surveillance by checking .git file
-```git
+check if bash surveillance by checking .bash file
+```bash
 ls -a
 ```
-delete this hidden file could remove git surveillance
-```git
-rm -rf .git
+delete this hidden file could remove bash surveillance
+```bash
+rm -rf .bash
 ```
-create a git local repo
-```git
-git init my-repo
+create a bash local repo
+```bash
+bash init my-repo
 ```
-clone from remote repo, git covered by default
-```git
-git clone <remote repo url>
+clone from remote repo, bash covered by default
+```bash
+bash clone <remote repo url>
 ```
-git add from working area to staged area
+bash add from working area to staged area
 status from untrack->staged
-```git
-git add file.text 
-git add *.text
-git add .
+```bash
+bash add file.text 
+bash add *.text
+bash add .
 ```
 discard files in staged area
-```git
-git rm --cached file.text
+```bash
+bash rm --cached file.text
 ```
 commit staged files to local repo
-```git
-git commit -m”” 
+```bash
+bash commit -m”” 
 ```
 check commit log
-```git
-git log
-git log --oneline
+```bash
+bash log
+bash log --oneline
 ```
 reset commit version
-```git
-git reset --soft // keep working and staged files
-git reset --hard // remove all files from working and staged area
-git reset --mixed // only keep working area files
+```bash
+bash reset --soft #  keep working and staged files
+bash reset --hard #  remove all files from working and staged area
+bash reset --mixed #  only keep working area files
 ```
 check staged files
-```git
-git ls-files
+```bash
+bash ls-files
 ```
 delete staged files
-```git
-git rm --cached **filename.txt
+```bash
+bash rm --cached **filename.txt
 ```
 compare diffs
-```git
-git diff
-git diff HEAD
-git diff cached
-git diff 56476547 7625375
+```bash
+bash diff
+bash diff HEAD
+bash diff cached
+bash diff 56476547 7625375
 ```
 remove files in both working and staged area
-```git
-git rm file.txt
+```bash
+bash rm file.txt
 ```
 only remove file in staged area
-```git
-git rm --cached file.txt
+```bash
+bash rm --cached file.txt
 ```
 #
-in local git repo,  cd .shh
+in local bash repo,  cd .shh
 Ssh-keygen -t rsa -b 4096
 enter return, to generate ssh key if it is first to config ssh
 
@@ -75,72 +75,72 @@ enter return, to generate ssh key if it is first to config ssh
 ## remote
 
 origin vs upstream
-```git
-https://blog.csdn.net/weixin_37646636/article/details/129778632
+```bash
+https:# blog.csdn.net/weixin_37646636/article/details/129778632
 ```
-remote repo (eg: github)
-```git
-git remote add <remote shortname><url> //eg: git remote add origin https://github.com/user/repo.git
-git remote rm <remote shortname>
-git remote rename old-name new-name
+remote repo (eg: bashhub)
+```bash
+bash remote add <remote shortname><url> # eg: bash remote add origin https:# bashhub.com/user/repo.bash
+bash remote rm <remote shortname>
+bash remote rename old-name new-name
 
-git remote -v // list remote repos
+bash remote -v #  list remote repos
 
-// eg:
-// origin  https://github.com/user/repo.git (fetch)
-// origin  https://github.com/user/repo.git (push)
+#  eg:
+#  origin  https:# bashhub.com/user/repo.bash (fetch)
+#  origin  https:# bashhub.com/user/repo.bash (push)
 ```
 delete a branch from remote
-```git
-git push origin --delete <branch-name>
+```bash
+bash push origin --delete <branch-name>
 ```
 push to remote repo
-```git
-git push -u <remote shortname><remote branchname>:<local branchname>
-git push // push local changes to tracked remote repo
+```bash
+bash push -u <remote shortname><remote branchname>:<local branchname>
+bash push #  push local changes to tracked remote repo
 ```
 update remote changes to local remote info
-```git
-git fetch <remote shortname> <branch-name>
+```bash
+bash fetch <remote shortname> <branch-name>
 ```
-git pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
-```git
-git pull 
+bash pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
+```bash
+bash pull 
 ```
 check which remote branch my current branch is tracking with
-```git
-git branch -vv
+```bash
+bash branch -vv
 ```
 change my remote tracking
-```git
-git branch --set-upstream-to=origin/feature-branch
+```bash
+bash branch --set-upstream-to=origin/feature-branch
 ```
 
 ## branch
 list all branches
 ```Python
-git branch //local branches
-git branch -r //remote branches
+bash branch # local branches
+bash branch -r # remote branches
 ```
 
 create new branch
 ```bash
-git branch <new-branch-name> # but not switch to it
-git checkout -b <new-branch-name> # and switch to it
-git checkout/switch <branch-name> # switch to a existing branch
+bash branch <new-branch-name> # but not switch to it
+bash checkout -b <new-branch-name> # and switch to it
+bash checkout/switch <branch-name> # switch to a existing branch
 ```
 change branchname
-```zsh
-git branch -m <new-branch-name> //will change current local name to new one
-git branch -m <old-branch-name> <new-branch-name> // if you are on different branch
+```bash
+bash branch -m <new-branch-name> # will change current local name to new one
+bash branch -m <old-branch-name> <new-branch-name> # if you are on different branch
 ```
 delete local branch
-```sh
-git branch -d <branch-name> // -d: delete branch that has been merged already
-git branch -D dev // -D: force to delete branch
+```bash
+bash branch -d <branch-name> # -d: delete branch that has been merged already
+bash branch -D dev # -D: force to delete branch
 ```
 ## rebase
-```shell
-git checkout feature
-git rebase main
+```bash
+bash checkout feature
+bash rebase main
 ```
