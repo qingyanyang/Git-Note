@@ -38,9 +38,9 @@ bash log --oneline
 ```
 reset commit version
 ```bash
-bash reset --soft #  keep working and staged files
-bash reset --hard #  remove all files from working and staged area
-bash reset --mixed #  only keep working area files
+bash reset --soft # keep working and staged files
+bash reset --hard # remove all files from working and staged area
+bash reset --mixed # only keep working area files
 ```
 check staged files
 ```bash
@@ -84,11 +84,11 @@ bash remote add <remote shortname><url> # eg: bash remote add origin https:# bas
 bash remote rm <remote shortname>
 bash remote rename old-name new-name
 
-bash remote -v #  list remote repos
+bash remote -v # list remote repos
 
-#  eg:
-#  origin  https:# bashhub.com/user/repo.bash (fetch)
-#  origin  https:# bashhub.com/user/repo.bash (push)
+# eg:
+# origin  https:# bashhub.com/user/repo.bash (fetch)
+# origin  https:# bashhub.com/user/repo.bash (push)
 ```
 delete a branch from remote
 ```bash
@@ -97,7 +97,7 @@ bash push origin --delete <branch-name>
 push to remote repo
 ```bash
 bash push -u <remote shortname><remote branchname>:<local branchname>
-bash push #  push local changes to tracked remote repo
+bash push # push local changes to tracked remote repo
 ```
 update remote changes to local remote info
 ```bash
