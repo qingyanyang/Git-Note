@@ -118,29 +118,29 @@ git branch --set-upstream-to=origin/feature-branch
 
 ## branch
 list all branches
-```git
+```Python
 git branch //local branches
 git branch -r //remote branches
 ```
 
 create new branch
 ```bash
-git branch <new-branch-name> //but not switch to it
-git checkout -b <new-branch-name> //and switch to it
-git checkout/switch <branch-name> //switch to a existing branch
+git branch <new-branch-name> # but not switch to it
+git checkout -b <new-branch-name> # and switch to it
+git checkout/switch <branch-name> # switch to a existing branch
 ```
 change branchname
-```git
+```zsh
 git branch -m <new-branch-name> //will change current local name to new one
 git branch -m <old-branch-name> <new-branch-name> // if you are on different branch
 ```
 delete local branch
-```git
+```sh
 git branch -d <branch-name> // -d: delete branch that has been merged already
 git branch -D dev // -D: force to delete branch
 ```
 ## rebase
-```git
+```shell
 git checkout feature
 git rebase main
 ```
