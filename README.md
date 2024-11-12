@@ -1,5 +1,31 @@
 # git note
 
+## config
+check version
+```bash
+git --version
+```
+config user name and email, this info will be shown at some senarioes: pr, commits
+```bash
+git config --global user.name "Chelsea.Y"
+git config --global user.email "yangqingyan0@gmail.com"
+# check configs
+git config --global --list
+
+# locally config eg: in a school project folder
+git config user.name "Qingyan Yang"
+git config user.email "a1865304@adelaide.edu.au"
+git config --list
+```
+## set up
+create a git local repo
+```bash
+git init (my-repo)
+```
+clone from remote repo, git covered by default
+```bash
+git clone <remote repo url>
+```
 check if git surveillance by checking .git file
 ```bash
 ls -a
@@ -8,29 +34,90 @@ delete this hidden file could remove git surveillance
 ```bash
 rm -rf .git
 ```
-create a git local repo
+
+# Scenario:
+
+In Git, we have three main areas in the local environment:
+	1.	Working Directory: Where your files are created and edited.
+	2.	Staging Area: Where changes are staged and prepared for committing.
+	3.	Git Repository: Where commits are stored in your local repository.
+
+Additionally, we have the:
+	1.	Remote Repository: Such as a GitHub repository, where the code is synchronized and shared.
+
+## Situation:
+
+I added all untracked files from the working directory to the staging area, committed them to my local Git repository, and pushed the commit to the remote GitHub repository. Later, I realized I had mistakenly uploaded a file that should have been ignored using .gitignore.
+
+## Analysis:
+	1.	Working Directory: The files remain unchanged.
+	2.	Staging Area: The staging area is now clean after the commit.
+	3.	Local Git Repository: Contains the new commit with all tracked files.
+
+git rm --cached removes the file from tracking but keeps it in the working directory. After adding it to .gitignore and untracking it, future git add commands will ignore this file, and it won’t be included in new commits.
+
+Commands to Check File Status
+Check Staging Area and Untracked/Modified Files:
 ```bash
-git init my-repo
+git status
 ```
-clone from remote repo, git covered by default
+Check Tracked Files in the Repository:
 ```bash
-git clone <remote repo url>
+git ls-files
 ```
-git add from working area to staged area
-status from untrack->staged
+
+## Solution:
+
+1. Add the File to .gitignore: Ensure the file will be ignored in the future but remains in the working directory.
+2. Untrack the File:
+```bash
+git rm --cached <file-path>
+```
+3. Commit the Changes:
+```bash
+git commit -m "Remove file from tracking and add to .gitignore"
+```
+4. Push to Remote Repository:
+```bash
+git push origin <branch-name>
+```
+## tracked vs staged
+Difference Between Staged and Tracked in Git
+
+	1.	Tracked:
+	•	A tracked file is any file that Git is aware of and is monitoring for changes. This includes files that have been committed at least once to the Git repository.
+	•	Tracked files can be in one of three states:
+	•	Unmodified: The file hasn’t changed since the last commit.
+	•	Modified: The file has changed in the working directory but hasn’t been staged yet.
+	•	Staged: The file has been modified and added to the staging area, ready to be committed.
+	2.	Staged:
+	•	A staged file is a file that has been added to the staging area using git add. This means it is ready to be included in the next commit.
+	•	When you stage a file, Git takes a snapshot of it and prepares it to be committed to the local repository.
+	•	Staging allows you to control which changes will be committed, making it possible to commit only a subset of the changes in your working directory.
+
+ Example
+
+	1.	You create a new file called example.txt:
+	•	Initially, it is untracked.
+	2.	You run git add example.txt:
+	•	example.txt becomes staged and is now a tracked file.
+	3.	You make changes to example.txt but don’t run git add again:
+	•	The file is tracked and modified but not staged.
+	4.	You run git add example.txt again:
+	•	The modified changes are staged.
+ 
+## Add
+This command stages all changes, including deletions, modifications, and new files
 ```bash
 git add file.text 
 git add *.text
 git add .
 ```
-discard files in staged area
+undo changes in the staging area
 ```bash
-git rm --cached file.text
+git reset
 ```
-commit staged files to local repo
-```bash
-git commit -m”” 
-```
+
 check commit log
 ```bash
 git log
@@ -42,14 +129,7 @@ git reset --soft # keep working and staged files
 git reset --hard # remove all files from working and staged area
 git reset --mixed # only keep working area files
 ```
-check staged files
-```bash
-git ls-files
-```
-delete staged files
-```bash
-git rm --cached **filename.txt
-```
+
 compare diffs
 ```bash
 git diff
@@ -61,16 +141,6 @@ remove files in both working and staged area
 ```bash
 git rm file.txt
 ```
-only remove file in staged area
-```bash
-git rm --cached file.txt
-```
-#
-in local git repo,  cd .shh
-Ssh-keygen -t rsa -b 4096
-enter return, to generate ssh key if it is first to config ssh
-
-
 
 ## remote
 
@@ -98,6 +168,7 @@ push to remote repo
 ```bash
 git push -u <remote shortname><remote branchname>:<local branchname>
 git push # push local changes to tracked remote repo
+git push --force # after local reset, the remote one will head few commits, use force to forcely cover remote content
 ```
 update remote changes to local remote info
 ```bash
