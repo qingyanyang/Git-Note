@@ -1,72 +1,72 @@
-# bash note
+# git note
 
-check if bash surveillance by checking .bash file
+check if git surveillance by checking .git file
 ```bash
 ls -a
 ```
-delete this hidden file could remove bash surveillance
+delete this hidden file could remove git surveillance
 ```bash
-rm -rf .bash
+rm -rf .git
 ```
-create a bash local repo
+create a git local repo
 ```bash
-bash init my-repo
+git init my-repo
 ```
-clone from remote repo, bash covered by default
+clone from remote repo, git covered by default
 ```bash
-bash clone <remote repo url>
+git clone <remote repo url>
 ```
-bash add from working area to staged area
+git add from working area to staged area
 status from untrack->staged
 ```bash
-bash add file.text 
-bash add *.text
-bash add .
+git add file.text 
+git add *.text
+git add .
 ```
 discard files in staged area
 ```bash
-bash rm --cached file.text
+git rm --cached file.text
 ```
 commit staged files to local repo
 ```bash
-bash commit -m”” 
+git commit -m”” 
 ```
 check commit log
 ```bash
-bash log
-bash log --oneline
+git log
+git log --oneline
 ```
 reset commit version
 ```bash
-bash reset --soft # keep working and staged files
-bash reset --hard # remove all files from working and staged area
-bash reset --mixed # only keep working area files
+git reset --soft # keep working and staged files
+git reset --hard # remove all files from working and staged area
+git reset --mixed # only keep working area files
 ```
 check staged files
 ```bash
-bash ls-files
+git ls-files
 ```
 delete staged files
 ```bash
-bash rm --cached **filename.txt
+git rm --cached **filename.txt
 ```
 compare diffs
 ```bash
-bash diff
-bash diff HEAD
-bash diff cached
-bash diff 56476547 7625375
+git diff
+git diff HEAD
+git diff cached
+git diff 56476547 7625375
 ```
 remove files in both working and staged area
 ```bash
-bash rm file.txt
+git rm file.txt
 ```
 only remove file in staged area
 ```bash
-bash rm --cached file.txt
+git rm --cached file.txt
 ```
 #
-in local bash repo,  cd .shh
+in local git repo,  cd .shh
 Ssh-keygen -t rsa -b 4096
 enter return, to generate ssh key if it is first to config ssh
 
@@ -78,69 +78,80 @@ origin vs upstream
 ```bash
 https:blog.csdn.net/weixin_37646636/article/details/129778632
 ```
-remote repo (eg: bashhub)
+remote repo (eg: github)
 ```bash
-bash remote add <remote shortname><url> # eg: bash remote add origin https:# bashhub.com/user/repo.bash
-bash remote rm <remote shortname>
-bash remote rename old-name new-name
+git remote add <remote shortname><url> # eg: git remote add origin https:# github.com/user/repo.git
+git remote rm <remote shortname>
+git remote rename old-name new-name
 
-bash remote -v # list remote repos
+git remote -v # list remote repos
 
 # eg:
-# origin  https:# bashhub.com/user/repo.bash (fetch)
-# origin  https:# bashhub.com/user/repo.bash (push)
+# origin  https:# github.com/user/repo.git (fetch)
+# origin  https:# github.com/user/repo.git (push)
 ```
 delete a branch from remote
 ```bash
-bash push origin --delete <branch-name>
+git push origin --delete <branch-name>
 ```
 push to remote repo
 ```bash
-bash push -u <remote shortname><remote branchname>:<local branchname>
-bash push # push local changes to tracked remote repo
+git push -u <remote shortname><remote branchname>:<local branchname>
+git push # push local changes to tracked remote repo
 ```
 update remote changes to local remote info
 ```bash
-bash fetch <remote shortname> <branch-name>
+git fetch <remote shortname> <branch-name>
 ```
-bash pull Without Specifying Branch: fetch and merge changesfrom tracked remote repo into local repo
+git pull Without Specifying Branch: fetch and merge changes from tracked remote repo(current branch tracked) into current repo
 ```bash
-bash pull 
+git pull
+```
+git pull with Specifying Branch: fetch changes from specific remote branch into local remote, and merge this change into current local branch
+```bash
+git pull origin/branch-name
+
+# eg:
+# git pull origin main (this happens before pull request)
+```
+pull remote branch to loacl
+```bash
+git checkout origin/branch-name 
 ```
 check which remote branch my current branch is tracking with
 ```bash
-bash branch -vv
+git branch -vv
 ```
 change my remote tracking
 ```bash
-bash branch --set-upstream-to=origin/feature-branch
+git branch --set-upstream-to=origin/feature-branch
 ```
 
 ## branch
 list all branches
 ```Python
-bash branch # local branches
-bash branch -r # remote branches
+git branch # local branches
+git branch -r # remote branches
 ```
 
 create new branch
 ```bash
-bash branch <new-branch-name> # but not switch to it
-bash checkout -b <new-branch-name> # and switch to it
-bash checkout/switch <branch-name> # switch to a existing branch
+git branch <new-branch-name> # but not switch to it
+git checkout -b <new-branch-name> # and switch to it
+git checkout/switch <branch-name> # switch to a existing branch
 ```
 change branchname
 ```bash
-bash branch -m <new-branch-name> # will change current local name to new one
-bash branch -m <old-branch-name> <new-branch-name> # if you are on different branch
+git branch -m <new-branch-name> # will change current local name to new one
+git branch -m <old-branch-name> <new-branch-name> # if you are on different branch
 ```
 delete local branch
 ```bash
-bash branch -d <branch-name> # -d: delete branch that has been merged already
-bash branch -D dev # -D: force to delete branch
+git branch -d <branch-name> # -d: delete branch that has been merged already
+git branch -D dev # -D: force to delete branch
 ```
 ## rebase
 ```bash
-bash checkout feature
-bash rebase main
+git checkout feature
+git rebase main
 ```
