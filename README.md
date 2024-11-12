@@ -35,24 +35,24 @@ delete this hidden file could remove git surveillance
 rm -rf .git
 ```
 
-# Scenario:
+## Scenario:
 
 In Git, we have three main areas in the local environment:
-	1.	Working Directory: Where your files are created and edited.
-	2.	Staging Area: Where changes are staged and prepared for committing.
-	3.	Git Repository: Where commits are stored in your local repository.
+	1. Working Directory: Where your files are created and edited.
+	2. Staging Area: Where changes are staged and prepared for committing.
+	3. Git Repository: Where commits are stored in your local repository.
 
 Additionally, we have the:
-	1.	Remote Repository: Such as a GitHub repository, where the code is synchronized and shared.
+	1. Remote Repository: Such as a GitHub repository, where the code is synchronized and shared.
 
 ## Situation:
 
 I added all untracked files from the working directory to the staging area, committed them to my local Git repository, and pushed the commit to the remote GitHub repository. Later, I realized I had mistakenly uploaded a file that should have been ignored using .gitignore.
 
 ## Analysis:
-	1.	Working Directory: The files remain unchanged.
-	2.	Staging Area: The staging area is now clean after the commit.
-	3.	Local Git Repository: Contains the new commit with all tracked files.
+	1. Working Directory: The files remain unchanged.
+	2. Staging Area: The staging area is now clean after the commit.
+	3. Local Git Repository: Contains the new commit with all tracked files.
 
 git rm --cached removes the file from tracking but keeps it in the working directory. After adding it to .gitignore and untracking it, future git add commands will ignore this file, and it won’t be included in new commits.
 
@@ -67,7 +67,6 @@ git ls-files
 ```
 
 ## Solution:
-
 1. Add the File to .gitignore: Ensure the file will be ignored in the future but remains in the working directory.
 2. Untrack the File:
 ```bash
@@ -113,9 +112,39 @@ git add file.text
 git add *.text
 git add .
 ```
-undo changes in the staging area
+undo changes in the staging area, but keep changes in working directory
+just like undo 'git add'
 ```bash
 git reset
+```
+undo commit, but changes still kept in staging area
+```bash
+git reset --soft HEAD~1
+```
+undo commit and add . but still want to keep the changes in your working directory
+```bash
+git reset --mixed HEAD~1
+```
+revert to last commit and will not save the changes unlike 'git stash'
+```bash
+git reset --hard
+```
+
+## stash
+git stash temporarily saves your uncommitted changes (both staged and unstaged) and reverts your working directory back to the state of the last commit. 
+```bash
+git stash
+
+# check stashes
+git stash list
+# apply last stash but not delete it
+git stash apply (--index)
+# apply last stash and delete it
+git stash pop
+# delete last stash
+git stash drop
+# clear all stashes
+git stash clear
 ```
 
 check commit log
