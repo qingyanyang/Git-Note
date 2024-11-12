@@ -117,6 +117,15 @@ just like undo 'git add'
 ```bash
 git reset
 ```
+before add ., some changes happen at working directory, but these changes can be done by click discard changes in vs code
+undo untrack files
+```bash
+git clean
+```
+undo tracked modifications
+```bash
+git checkout .
+```
 undo commit, but changes still kept in staging area
 ```bash
 git reset --soft HEAD~1
@@ -146,19 +155,16 @@ git stash drop
 # clear all stashes
 git stash clear
 ```
-
+## revert
+used to undo a commit by creating a new commit that reverses the changes made by the specified commit
+```bash
+git revert 
+```
 check commit log
 ```bash
 git log
 git log --oneline
 ```
-reset commit version
-```bash
-git reset --soft # keep working and staged files
-git reset --hard # remove all files from working and staged area
-git reset --mixed # only keep working area files
-```
-
 compare diffs
 ```bash
 git diff
