@@ -258,6 +258,16 @@ git branch -D dev # -D: force to delete branch
 ```
 ## rebase
 ```bash
-git checkout feature
+# switch to main and pull the latest changes
+git switch main
+git pull origin main
+# merge main to feature branch and resolve conflicts 
+git switch feature
 git rebase main
+# add to staged and push to remote
+git add .
+git rebase --continue
+git push (--set-upstream origin feature)
+# then create pr on github
+# after code reviewing done, do rebase and merge quickly!
 ```
