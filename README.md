@@ -215,12 +215,12 @@ git pull
 ```
 git pull with Specifying Branch: fetch changes from specific remote branch into local remote, and merge this change into current local branch
 ```bash
-git pull origin/branch-name
+git pull origin branch-name
 
 # eg:
 # git pull origin main (this happens before pull request)
 ```
-pull remote branch to loacl
+pull remote branch to local
 ```bash
 git checkout origin/branch-name 
 ```
